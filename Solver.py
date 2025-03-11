@@ -24,3 +24,22 @@ def solve_quadratic(a: float, b: float, c: float):
         print(f"x1 = {x}")
     else:
         print("There are 0 roots")
+
+def interactive_mode():
+    """Інтерактивний режим: введення користувачем"""
+    def get_float(prompt):
+        while True:
+            try:
+                return float(input(prompt))
+            except ValueError as e:
+                print(f"Error. Expected a valid real number, got {e.args[0]} instead")
+
+    a = get_float("a = ")
+    while a == 0:
+        print("Error. a cannot be 0")
+        a = get_float("a = ")
+
+    b = get_float("b = ")
+    c = get_float("c = ")
+
+    solve_quadratic(a, b, c)
